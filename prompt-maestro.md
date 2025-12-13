@@ -83,9 +83,49 @@ Genera las siguientes Sub-Políticas Técnicas completas, normativas y obligator
    - Su **Checklist específico**  
    - Un **gráfico Mermaid** que represente la segregación de esquemas.
 
-La IA debe también:
-- Sugerir Sub-Políticas adicionales que potencien la madurez de la Gerencia de TICs.
-- Explicar por qué cada una merece un documento separado.
+Además, la IA debe generar una Sub-Política Técnica obligatoria denominada **"SP-18 — Artefactos Operables"**, cuyo objetivo es establecer lineamientos para prohibir la admisión, despliegue o promoción de artefactos que requieran ejecución manual desde CLI, envío al background mediante herramientas como `nohup`, `screen` o `tmux`, o que dependan de intervención humana para recuperarse ante fallas.
+
+La política deberá exigir que todo artefacto:
+- Se ejecute exclusivamente como **servicio persistente** con restart policies, o como **contenedor OCI** con health checks y restart automático.
+- Implemente **zero-touch recovery**, incluyendo autorrestart ante fallas típicas como pérdida de conexión a la base de datos o problemas de red.
+- Sea completamente operable y supervisable por Producción, con logs estructurados, métricas, telemetría y health checks obligatorios.
+- No dependa de procedimientos manuales para su despliegue, ejecución, monitoreo o recuperación.
+
+La IA también debe generar:
+- Su **Manual Técnico (MT-18)** con los requisitos técnicos de resiliencia, supervisión, ejecución como servicio o contenedor y prácticas de operación.
+- Su **Checklist operativo (Nivel 3)** obligatorio para auditoría y CI/CD.
+
+Además, la IA deberá generar las siguientes Sub-Políticas Técnicas obligatorias, cada una con su respectivo Manual Técnico (Nivel 2) y Checklist (Nivel 3):
+
+**SP-09 — Infraestructura como Código (IaC)**  
+Definir lineamientos, estándares y requisitos para IaC, incluyendo control de versiones, reproducibilidad, gobernanza, ambientes declarativos, validación estructural, pruebas automatizadas de IaC y seguridad en pipelines.
+
+**SP-10 — APIs e Integraciones**  
+Establecer requisitos para diseño, versionado, contratos, seguridad, validación de esquemas, pruebas de integración automatizadas, observabilidad y gobernanza del ciclo de vida de APIs internas y externas.
+
+**SP-11 — Control de Cambios DDL/DML en Base de Datos**  
+Regular la creación, modificación y despliegue de cambios DDL/DML mediante versionado, plantillas obligatorias, pipelines automáticos, validaciones previas y auditoría completa.
+
+**SP-12 — Auditoría y Trazabilidad**  
+Definir lineamientos para capturar, almacenar y consultar eventos relevantes de auditoría funcional y técnica, garantizando cumplimiento regulatorio, reconstrucción de incidentes y trazabilidad de extremo a extremo.
+
+**SP-13 — Disponibilidad y Continuidad Operativa**  
+Establecer requisitos mínimos de disponibilidad, recuperación, tolerancia a fallos, pruebas de continuidad, acuerdos operativos y dependencias críticas.
+
+**SP-14 — Pruebas Automatizadas**  
+Requerir pruebas unitarias, integración, regresión, seguridad y cobertura mínima del 80%, incluyendo ejecución en CI/CD, evidencias y auditoría técnica.
+
+**SP-15 — Contenedores e Imágenes (Docker/OCI)**  
+Regular estándares de construcción, endurecimiento, escaneo de vulnerabilidades, health checks, ejecución como usuario no root y registro en repositorios institucionales.
+
+**SP-16 — Gestión de Entornos**  
+Definir lineamientos de definición, uso, segregación, consistencia, configuración, restricciones de acceso y gobernanza de ambientes DEV/QA/UAT/PRE-PROD/PROD.
+
+**SP-17 — Métricas de Producto y Telemetría**  
+Establecer los requisitos para métricas técnicas, métricas de producto, telemetría, trazabilidad, observabilidad, dashboards, exportación a plataformas institucionales y validación en CI/CD.
+
+**SP-18 — Artefactos Operables**  
+Prohibir artefactos que requieran ejecución manual o reinicio humano. Exigir ejecución como servicio persistente o contenedor con políticas de restart, health checks y zero-touch recovery. Incluir lineamientos de resiliencia, supervisión operativa, observabilidad y automatización total del despliegue.
 
 ---
 
